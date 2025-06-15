@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Student Visa Help</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/style.css">
   </head>
   <body>
 
     <!-- Navigation Bar -->
     <nav>
-        <div class="desktop-navbar">
+        <div class="desktop-navbar" id="desktop-navbar">
             <div class="container d-flex justify-content-between align-items-center">
                 <div class="navbar-brand">
                     <a href="./index.html">
@@ -24,7 +26,7 @@
                         <li><a href="about.html">About</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </div>
                 <a href="contact.html" class="btn btn-primary d-block">Get Started</a>
@@ -37,18 +39,37 @@
                         <img src="./src/img/logo_transparent.png" alt="Student Visa Help Logo" class="img-fluid">
                     </a>
                 </div>
-            </div>
-            
+                <button class="hamburger-menu" id="hamburger-toggle" aria-label="Open Mobile Menu">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>            
         </div>
     </nav>
+
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <button class="close-button" id="close-mobile-nav">
+                <!-- <i class="fas fa-times"></i> -->
+        </button>
+        <div class="mobile-nav-content" id="mobile-nav-content">
+          
+            <nav>
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">Services</a>
+            <a href="blog.html" class="nav-link">Blog</a>
+            <a href="contact.html" class="nav-link">Contact Us</a>
+            </nav>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section id="hero-section">
         <div class="container">
-            <div class="row">
+            <div class="row" data-aos="fade-up">
                 <div class="col-md-6 hero-content">
-                    <h1>Trusted Student Visa Assistance for UK, USA, Canada, Australia & New Zealand</h1>
-                    <p>We provide expert student visa assistance for the UK, USA, Canada, Australia, and New Zealand. Our personalized support simplifies your visa application, interview prep, and scholarship guidance to help you study abroad with confidence.</p>
+                    <h5 class="">Student Visa Help</h5>
+                    <h1>Student Visa Application Experts for UK, Canada, Australia & New Zealand</h1>
+                    <p>Get personalized guidance for your study visa journey. We help you prepare documents, ace interviews, and secure scholarships for top global destinations.</p>
                     <div>
                         <a href="#" class="btn btn-primary">Learn More</a>
                         <a href="#" class="btn btn-secondary">Get Started</a>
@@ -63,5 +84,64 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+                document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle (Existing Code)
+            const hamburgerToggle = document.getElementById('hamburger-toggle');
+            const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+            const mobileNavContent = document.getElementById('mobile-nav-content');
+            const closeMobileNav = document.getElementById('close-mobile-nav');
+            const desktopNav = document.getElementById('desktop-navbar');
+
+            const openMobileMenu = () => {
+                mobileNavOverlay.classList.add('active');
+                mobileNavContent.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeMobileMenu = () => {
+                mobileNavOverlay.classList.remove('active');
+                mobileNavContent.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+            hamburgerToggle.addEventListener('click', openMobileMenu);
+            closeMobileNav.addEventListener('click', closeMobileNav);
+            mobileNavOverlay.addEventListener('click', (event) => {
+                if (event.target === mobileNavOverlay) {
+                    closeMobileMenu();
+                }
+            });
+
+            const mobileNavLinks = mobileNavContent.querySelectorAll('.nav-link');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+
+            const mediaQuery = window.matchMedia('(max-width: 768px)');
+
+            const handleMediaQueryChange = (e) => {
+                if (e.matches) {
+                    desktopNav.style.display = 'none';
+                    hamburgerToggle.style.display = 'block';
+                } else {
+                    desktopNav.style.display = 'flex';
+                    hamburgerToggle.style.display = 'none';
+                    closeMobileMenu();
+                }
+            };
+
+            handleMediaQueryChange(mediaQuery);
+            mediaQuery.addEventListener('change', handleMediaQueryChange);
+
+        });
+    </script>
+    <script>
+      AOS.init({
+        duration: 1200,
+        once: true
+      });
+    </script>
   </body>
 </html>
