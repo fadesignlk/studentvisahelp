@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+
+:root {
+  /* --- Color Variables --- */
+  --primary-color: #00246B; 
+  --primary-color-light: #274c92; 
+  --secondary-color: #A1C6EA; /* A muted gray, for secondary information */
+  --accent-color: #D9B061; /* A green, often for success messages or highlights */
+  --text-color: #343a40; /* Dark gray for general text */
+  --light-text-color: #f8f9fa; /* Light color for text on dark backgrounds */
+  --background-color: #ffffff;
+  --background-color-body: #ebe9e5;
+  --light-background-color: #f2f2f2; /* Light gray for subtle section backgrounds */
+  --border-color: #dee2e6; /* Light gray for borders */
+
+  /* --- Spacing Variables --- */
+  --spacing-xxs: 4px;   /* Extra extra small spacing */
+  --spacing-xs: 8px;    /* Extra small spacing */
+  --spacing-sm: 12px;   /* Small spacing */
+  --spacing-md: 16px;   /* Medium spacing (base unit) */
+  --spacing-lg: 24px;   /* Large spacing */
+  --spacing-xl: 32px;   /* Extra large spacing */
+  --spacing-xxl: 48px;  /* Extra extra large spacing */
+
+  /* --- Font Variables (Optional, but good to include) --- */
+  --base-font-family: "Roboto", sans-serif;
+  --heading-font-family:  "Outfit", sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.5;
+
+  /* --- Border Radius Variables (Optional) --- */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+}
+
+/* --- Global Styles --- */
+body {
+  font-family: var(--base-font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--text-color);
+  background-color: var(--background-color-body);
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Headings --- */
+h1, h2, h3, h4, h5, h6 {
+  /* color: var(--primary-color); */
+  /* margin-top: var(--spacing-lg); */
+  font-family: var(--heading-font-family);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+h1 { font-size: 2.5em; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.75em; }
+h4 { font-size: 1.5em; }
+h5 { font-size: 1.25em; }
+h6 { font-size: 1em; }
+
+/* --- Paragraphs --- */
+p {
+  margin-bottom: var(--spacing-md);
+}
+
+/* --- Links --- */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+img{
+  max-width: 100%;
+  border-radius: var(--border-radius-xl);
+  object-fit: contain;
+}
+
+
+/* --- Buttons --- */
+.btn{
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: 1.1em;
+    border: none;
+    border-radius: var(--border-radius-md);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary {
+    color: var(--light-text-color);
+    background-color: var(--primary-color);
+
+    &:hover {
+        background-color: var(--primary-color-light) !important;
+    }
+}
+
+.btn-secondary {
+    color: var(--primary-color);
+    background-color: var(--background-color-body);
+    border: 1px solid var(--primary-color);
+
+    &:hover {
+      color: var(--primary-color) !important;
+      background-color: var(--background-color-body) !important;
+      border: 1px solid var(--primary-color) !important;
+    }
+}
+
+
+/* --- Containers/Sections --- */
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* --- Utility Classes --- */
+.text-center {
+  text-align: center;
+}
+
+/* Navbar */
+nav{ 
+  padding: var(--spacing-md) 0;
+    .navbar-brand {
+        img{
+            width: 120px;
+            border-radius: 0;
+        }
+    }
+
+    .nav-links{
+      ul{
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li:not(:last-child) {
+          margin-right: var(--spacing-lg);
+        }
+
+        li{
+          font-weight: 400;
+          a {
+            color: var(--text-color);
+            transition: color 0.3s ease;
+            font-size: 1.2rem;
+
+            &:hover {
+              color: var(--primary-color);
+            }
+          }
+        }
+      }
+    }
+}
+
+/* Hero Section */
+#hero-section {
+  height: calc(100vh - 92px); 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        padding-right: var(--spacing-xxl);
+    }
+
+    img{
+        object-fit: cover;
+        height: 400px;
+        width: 100%;
+    }
+}
+
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  h1 { font-size: 1.9em; }
+  h2 { font-size: 1.5em; }
+  h3 { font-size: 1.2em; }
+  h4,h5,h6 { font-size: 1em; }
+
+
+    nav{
+      padding: 0;
+
+      .desktop-navbar {
+        display: none;
+      }
+
+      .mobile-navbar {
+        padding: var(--spacing-lg) 0;
+        .navbar-brand {
+            img{
+                width: 95px;
+            }
+        }
+      }
+    }
+
+    #hero-section {
+        height: auto;
+
+        .hero-content {
+          margin-bottom:  var(--spacing-xl);
+        }
+
+        img{
+            height: 300px;
+        }
+    }
+
+}
