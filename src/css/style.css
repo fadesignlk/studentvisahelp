@@ -34,6 +34,7 @@
   --spacing-xl: 32px;   
   --spacing-xxl: 48px;  
   --spacing-xxxl: 4rem;  
+  --spacing-xxxxl: 5.5rem;  
 
   /* --- Font Variables (Optional, but good to include) --- */
   --base-font-family: "Roboto", sans-serif;
@@ -272,10 +273,6 @@ nav{
     color: var(--color-text-secondary);
 }
 
-#start-section, #why-choose-us-section{
-  margin: var(--spacing-xxxl) 0;
-}
-
 /* Hero Section */
 #hero-section {
   height: calc(100vh - 92px); 
@@ -334,9 +331,11 @@ nav{
 
 /* Start Section */
 #start-section{
+
+  background-color: var(--color-grey);
+  padding: var(--spacing-xxxxl) 0;
+
   .row{
-    background-color: var(--color-grey);
-    padding: var(--spacing-xxl) var(--spacing-lg);
     
 
     img{
@@ -349,6 +348,7 @@ nav{
 
 /* What we offer section */
 #why-choose-us-section{
+  margin: var(--spacing-xxxl) 0;
   .header{
     text-align: center;
     margin-bottom: var(--spacing-xl);    
@@ -356,11 +356,12 @@ nav{
 
   .icon{
     margin-bottom: var(--spacing-md);
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: var(--border-radius-md);
 
     i.bi{
       font-size: 2rem;
@@ -385,16 +386,63 @@ nav{
   }
 }
 
+/* Countires */
+#counties-section {
+  background-color: var(--color-thistle);
+  padding: var(--spacing-xxxxl) 0;
+
+  h2 {
+    margin-bottom: var(--spacing-xxl);
+  }
+
+  .country-group {
+    list-style-type: none;
+    padding: 0;
+
+    .country-group-item {
+      padding: 0 0 var(--spacing-xl) 0;
+      margin: 0;
+      border: none;
+
+      &:last-child {
+        padding: 0;
+      }
+
+      h4{
+        font-size: 1.5rem;
+
+        &:hover{
+          text-decoration: underline;
+          text-decoration-color: white;
+        }
+
+
+      }
+    }
+  }
+
+  #imageCarousel{
+    .carousel-inner{
+      border-radius: var(--border-radius-xl);
+
+      img{
+        object-fit: cover;
+        height: 550px;
+    }
+    }
+  }
+}
+
 footer{
   margin-top: 20rem;
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-  h1 { font-size: 1.9em; }
-  h2 { font-size: 1.5em; }
-  h3 { font-size: 1.2em; }
-  h4,h5,h6 { font-size: 1em; }
+  h1 { font-size: 1.9rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+  h4,h5,h6 { font-size: 1rem; }
   
   .container{
     width: 95%;
@@ -460,6 +508,23 @@ footer{
         img{
             height: 250px;
             margin-bottom: var(--spacing-lg);
+        }
+      }
+    }
+
+    /* Countires */
+    #counties-section {
+      padding: var(--spacing-xxxl) 0;
+
+      #country-content{
+        margin-bottom: var(--spacing-lg);
+      }
+
+      #imageCarousel{
+        .carousel-inner{
+          img{
+          height: 350px;
+        }
         }
       }
     }
