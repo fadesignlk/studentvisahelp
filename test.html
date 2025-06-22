@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Basic styling for the header and mobile toggle */
+.main-header {
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+    height: 60px; /* Crucial for positioning the nav below */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.main-header .logo {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Hamburger Menu Button (ID targets it directly from JS) */
+#hamburger-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px; /* Width of the icon */
+    height: 25px; /* Height of the icon */
+    padding: 0;
+    position: relative;
+    z-index: 101; /* Ensure it's above the nav and overlay */
+}
+
+/* Styles for the individual bars of the hamburger */
+#hamburger-toggle .bar {
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out; /* Smooth transition for bars */
+}
+
+/* Hamburger to Close Button Transformation when 'active' class is added */
+#hamburger-toggle.active .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg); /* Move down and rotate */
+}
+
+#hamburger-toggle.active .bar:nth-child(2) {
+    opacity: 0; /* Hide the middle bar */
+}
+
+#hamburger-toggle.active .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg); /* Move up and rotate */
+}
+
+/* Mobile Navigation Content */
+#mobile-nav-content {
+    position: fixed;
+    top: 60px; /* Starts below the header (adjust if header height changes) */
+    right: 0;
+    width: 100%; /* Full width */
+    height: calc(100% - 60px); /* Full height minus header height */
+    background-color: #222;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.4);
+    transform: translateX(100%); /* Start completely off-screen to the right */
+    transition: transform 0.3s ease-in-out; /* Smooth slide transition */
+    z-index: 99;
+    overflow-y: auto; /* Enable scrolling for long content */
+    padding-top: 20px; /* Add some top padding for content */
+}
+
+#mobile-nav-content.active {
+    transform: translateX(0); /* Slide into view */
+}
+
+#mobile-nav-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#mobile-nav-content ul li {
+    border-bottom: 1px solid #444;
+}
+
+#mobile-nav-content ul li:last-child {
+    border-bottom: none;
+}
+
+#mobile-nav-content ul li a {
+    display: block;
+    padding: 18px 25px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: background-color 0.2s ease;
+}
+
+#mobile-nav-content ul li a:hover,
+#mobile-nav-content ul li a:focus {
+    background-color: #444;
+}
+
+/* Mobile Navigation Overlay */
+#mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 98; /* Below mobile nav content */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#mobile-nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Content padding to prevent overlap with fixed header */
+.content {
+    padding-top: 70px; /* Header height + some margin */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Media Query for desktop (hides mobile elements, shows desktop nav) */
+@media (min-width: 768px) {
+    #hamburger-toggle,
+    #mobile-nav-overlay,
+    #mobile-nav-content {
+        display: none; /* Hide mobile elements */
+    }
+
+    /* Assuming your #desktop-navbar is usually hidden/flexed */
+    #desktop-navbar {
+        display: flex !important; /* Force show desktop nav */
+    }
+
+    .main-header {
+        position: static; /* Reset header for desktop */
+        height: auto;
+        box-shadow: none;
+    }
+}
+    </style>
+</head>
+<body>
+    <header class="main-header">
+    <a href="#" class="logo">YourLogo</a>
+    <button class="hamburger-menu" id="hamburger-toggle" aria-label="Open navigation menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+</header>
+
+<nav id="mobile-nav-content">
+    <ul>
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+</nav>
+
+<div id="mobile-nav-overlay"></div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    // Mobile Menu Toggle
+    const hamburgerToggle = document.getElementById('hamburger-toggle');
+    const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+    const mobileNavContent = document.getElementById('mobile-nav-content');
+    // const closeMobileNav = document.getElementById('close-mobile-nav'); // REMOVED
+    const desktopNav = document.getElementById('desktop-navbar');
+
+    const toggleMobileMenu = () => { // Combined open and close logic
+        mobileNavOverlay.classList.toggle('active');
+        mobileNavContent.classList.toggle('active');
+        hamburgerToggle.classList.toggle('active'); // Toggle 'active' on hamburger
+
+        if (mobileNavContent.classList.contains('active')) {
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        } else {
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+    };
+
+    hamburgerToggle.addEventListener('click', toggleMobileMenu);
+    // closeMobileNav.addEventListener('click', closeMobileMenu); // REMOVED
+    mobileNavOverlay.addEventListener('click', (event) => {
+        if (event.target === mobileNavOverlay) {
+            toggleMobileMenu(); // Use the combined toggle function
+        }
+    });
+
+    const mobileNavLinks = mobileNavContent.querySelectorAll('.nav-link');
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', toggleMobileMenu); // Use the combined toggle function
+    });
+
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
+
+    const handleMediaQueryChange = (e) => {
+        if (e.matches) { // If it's a mobile screen
+            desktopNav.style.display = 'none';
+            hamburgerToggle.style.display = 'flex'; // Ensure hamburger is visible
+        } else { // If it's a desktop screen
+            desktopNav.style.display = 'flex';
+            hamburgerToggle.style.display = 'none';
+            if (mobileNavContent.classList.contains('active')) { // Close menu if open on resize
+                 toggleMobileMenu(); // Use the combined toggle
+            }
+        }
+    };
+
+    // Initial check
+    handleMediaQueryChange(mediaQuery);
+    // Listen for changes
+    mediaQuery.addEventListener('change', handleMediaQueryChange);
+});
+</script>
+</body>
+</html>
