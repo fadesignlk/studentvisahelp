@@ -109,6 +109,13 @@ img{
   object-fit: contain;
 }
 
+button{
+  border: 0;
+  margin: 0;
+  padding: 0;
+
+}
+
 /* --- Buttons --- */
 .btn{
     padding: 20px 40px;
@@ -120,6 +127,7 @@ img{
 }
 
 .btn-sm{
+    display: inline-block;
     padding: 12px 20px;
     font-size: 0.875rem;
     font-weight: 700;
@@ -131,6 +139,15 @@ img{
 .btn-primary {
     color: var(--light-text-color);
     background-color: var(--primary-color);
+
+    &:hover {
+        background-color: var(--secondary-color) !important;
+    }
+}
+
+.btn-secondary {
+    color: var(--text-color);
+    background-color: white;
 
     &:hover {
         background-color: var(--secondary-color) !important;
@@ -391,7 +408,7 @@ nav{
 }
 
 /* Countires */
-#counties-section {
+#countries-section {
   background-color: var(--color-thistle);
   padding: var(--spacing-xxxxl) 0;
 
@@ -432,13 +449,97 @@ nav{
       img{
         object-fit: cover;
         height: 550px;
+      }
     }
+
+    #carousel-btn{
+      position: absolute;
+      right:0;
+        .carousel-next, .carousel-prev {            
+            color: var(--secondary-color);
+            background: none;
+        }
+
+        .carousel-next{
+          padding-left: .5rem;
+        }
+
+        i.bi{
+          font-size: 2.2rem;
+        }
+    }
+  }
+}
+
+/* FAQ Section */
+#faq-section{
+  padding: var(--spacing-xxxl) 0;
+
+  .header{
+      h2{
+        margin-bottom: var(--spacing-xxl);
+      }
+  }
+
+  h3{
+    button{
+      font-size: var(--font-size-2);
+    }
+  }
+
+  .accordion-button{
+    padding-left: 0;
+  }
+
+  .accordion-button:focus{
+    box-shadow: none;
+  }
+
+  .accordion-button:not(.collapsed){
+    color: var(--text-color);
+    background-color: var(--color-grey);
+    box-shadow: none;
+  }
+
+  .faq-alt{
+    padding: var(--spacing-xl) var(--spacing-lg);
+    background-color: var(--color-light-blue);
+    border-radius: var(--border-radius-md);
+  }
+}
+
+/* Register Section */
+#register-section {
+  padding: var(--spacing-xxxl) 0;
+  background-color: var(--primary-color);
+  color: white;
+
+  h2{
+    color: white;
+  }
+
+  ul{
+    list-style-type: none;
+    padding: 0;
+
+    li{
+      
+      i.bi{
+        padding-right: var(--spacing-sm);
+      }
+
+      font-size: 1.45rem;
+      margin-bottom: var(--spacing-md);
     }
   }
 }
 
 footer{
-  margin-top: 20rem;
+  padding: var(--spacing-lg) 0;
+  text-align: center;
+  p{
+    margin-bottom: 0;
+  }
 }
 
 /* Mobile Responsiveness */
@@ -517,7 +618,7 @@ footer{
     }
 
     /* Countires */
-    #counties-section {
+    #countries-section {
       padding: var(--spacing-xxxl) 0;
 
       #country-content{
@@ -529,6 +630,43 @@ footer{
           img{
           height: 350px;
         }
+        }
+      }
+    }
+
+    /* FAQ Section */
+    #faq-section{
+
+      .header{
+          h2{
+            margin-bottom: var(--spacing-xl);
+          }
+      }
+
+      h3{
+        button{
+          font-size: var(--font-size-1);
+        }
+      }
+
+      .faq-alt{
+        margin-top: var(--spacing-lg);
+      }
+    }
+
+    /* Register Section */
+    #register-section {
+      ul{
+        margin-top: var(--spacing-lg);
+
+        li{
+          
+          i.bi{
+            padding-right: var(--spacing-sm);
+          }
+
+          font-size: var(--font-size-1);
+          margin-bottom: var(--spacing-sm);
         }
       }
     }
