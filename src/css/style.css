@@ -86,9 +86,9 @@ h1 {
   font-weight: 700;
 }
 
-h2 { font-size: 2em; }
-h3 { font-size: 1.75em; }
-h4 { font-size: 1.5em; }
+h2 { font-size: 2.4em; }
+h3 { font-size: 1.92em; }
+h4 { font-size: 1.68em; }
 h5 { font-size: 1.25em; }
 h6 { font-size: 1em; }
 
@@ -335,6 +335,10 @@ nav{
   background-color: var(--color-grey);
   padding: var(--spacing-xxxxl) 0;
 
+  h2 {
+    margin-bottom: var(--spacing-lg);
+  }
+
   .row{
     
 
@@ -409,7 +413,7 @@ nav{
       }
 
       h4{
-        font-size: 1.5rem;
+        /* font-size: 1.5rem; */
 
         &:hover{
           text-decoration: underline;
