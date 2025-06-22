@@ -56,7 +56,7 @@
             <div class="container d-flex justify-content-between align-items-center">
                 <div class="navbar-brand">
                     <a href="./index.html">
-                        <img src="./src/img/logo_transparent.png" alt="Student Visa Help Logo" class="img-fluid">
+                        <img src="./src/img/logo_transparent.webp" alt="Student Visa Help Logo" class="img-fluid">
                     </a>
                 </div>
                 <button class="hamburger-menu" id="hamburger-toggle" aria-label="Open navigation menu">
@@ -91,7 +91,7 @@
                     <h1>Expert Student Visa Guidance for UK, Canada, Australia, Germany</h1>
                     <p>Student visa guidance, step-by-step support, and personalized advice for UK, Canada, Australia, New Zealand, and Germany study abroad success.</p>
                     <div>
-                        <a href="#" class="btn btn-primary">Get Started for Free</a>
+                        <a href="#start-section" class="btn btn-primary">Get Started for Free</a>
                     </div>
                     <div class="hero-features d-flex my-3">
                         <div class="feature-item me-3">
@@ -321,6 +321,7 @@
       </div>
     </section>
 
+    <!-- Footer -->
     <footer>
       <div class="container">
         <p>Student Visa Help © 2025. Made with ❤️ by DigitalFeed.</p>
@@ -331,59 +332,59 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-    // Mobile Menu Toggle
-    const hamburgerToggle = document.getElementById('hamburger-toggle');
-    const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
-    const mobileNavContent = document.getElementById('mobile-nav-content');
-    // const closeMobileNav = document.getElementById('close-mobile-nav'); // REMOVED
-    const desktopNav = document.getElementById('desktop-navbar');
+          document.addEventListener('DOMContentLoaded', () => {
+          // Mobile Menu Toggle
+          const hamburgerToggle = document.getElementById('hamburger-toggle');
+          const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+          const mobileNavContent = document.getElementById('mobile-nav-content');
+          // const closeMobileNav = document.getElementById('close-mobile-nav'); // REMOVED
+          const desktopNav = document.getElementById('desktop-navbar');
 
-    const toggleMobileMenu = () => { // Combined open and close logic
-        mobileNavOverlay.classList.toggle('active');
-        mobileNavContent.classList.toggle('active');
-        hamburgerToggle.classList.toggle('active'); // Toggle 'active' on hamburger
+          const toggleMobileMenu = () => { // Combined open and close logic
+              mobileNavOverlay.classList.toggle('active');
+              mobileNavContent.classList.toggle('active');
+              hamburgerToggle.classList.toggle('active'); // Toggle 'active' on hamburger
 
-        if (mobileNavContent.classList.contains('active')) {
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-        } else {
-            document.body.style.overflow = ''; // Restore scrolling
-        }
-    };
+              if (mobileNavContent.classList.contains('active')) {
+                  document.body.style.overflow = 'hidden'; // Prevent scrolling
+              } else {
+                  document.body.style.overflow = ''; // Restore scrolling
+              }
+          };
 
-    hamburgerToggle.addEventListener('click', toggleMobileMenu);
-    // closeMobileNav.addEventListener('click', closeMobileMenu); // REMOVED
-    mobileNavOverlay.addEventListener('click', (event) => {
-        if (event.target === mobileNavOverlay) {
-            toggleMobileMenu(); // Use the combined toggle function
-        }
-    });
+          hamburgerToggle.addEventListener('click', toggleMobileMenu);
+          // closeMobileNav.addEventListener('click', closeMobileMenu); // REMOVED
+          mobileNavOverlay.addEventListener('click', (event) => {
+              if (event.target === mobileNavOverlay) {
+                  toggleMobileMenu(); // Use the combined toggle function
+              }
+          });
 
-    const mobileNavLinks = mobileNavContent.querySelectorAll('.nav-link');
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', toggleMobileMenu); // Use the combined toggle function
-    });
+          const mobileNavLinks = mobileNavContent.querySelectorAll('.nav-link');
+          mobileNavLinks.forEach(link => {
+              link.addEventListener('click', toggleMobileMenu); // Use the combined toggle function
+          });
 
-    const mediaQuery = window.matchMedia('(max-width: 768px)');
+          const mediaQuery = window.matchMedia('(max-width: 768px)');
 
-    const handleMediaQueryChange = (e) => {
-        if (e.matches) { // If it's a mobile screen
-            desktopNav.style.display = 'none';
-            hamburgerToggle.style.display = 'flex'; // Ensure hamburger is visible
-        } else { // If it's a desktop screen
-            desktopNav.style.display = 'flex';
-            hamburgerToggle.style.display = 'none';
-            if (mobileNavContent.classList.contains('active')) { // Close menu if open on resize
-                 toggleMobileMenu(); // Use the combined toggle
-            }
-        }
-    };
+          const handleMediaQueryChange = (e) => {
+              if (e.matches) { // If it's a mobile screen
+                  desktopNav.style.display = 'none';
+                  hamburgerToggle.style.display = 'flex'; // Ensure hamburger is visible
+              } else { // If it's a desktop screen
+                  desktopNav.style.display = 'flex';
+                  hamburgerToggle.style.display = 'none';
+                  if (mobileNavContent.classList.contains('active')) { // Close menu if open on resize
+                      toggleMobileMenu(); // Use the combined toggle
+                  }
+              }
+          };
 
-    // Initial check
-    handleMediaQueryChange(mediaQuery);
-    // Listen for changes
-    mediaQuery.addEventListener('change', handleMediaQueryChange);
-});
+          // Initial check
+          handleMediaQueryChange(mediaQuery);
+          // Listen for changes
+          mediaQuery.addEventListener('change', handleMediaQueryChange);
+      });
     </script>
     <script>
       AOS.init({
