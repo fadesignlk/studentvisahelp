@@ -14,7 +14,7 @@
   --text-color: #36383a; 
   --text-color-heading: #18164c;
   --light-text-color: #f8f9fa;
-  --background-color: #ffffff;
+  --background-color: #fffafa;
   --background-color-body: #ebe9e5;
   --light-background-color: #f2f2f2;
   --border-color: #d6d6d6; 
@@ -541,6 +541,74 @@ footer{
     margin-bottom: 0;
   }
 }
+
+/* Footer Section */
+.footer-section {
+  background-color: var(--background-color) !important; /* Ensure override if Bootstrap has other bg-dark styles */
+  color: var(--text-color) !important;
+  font-size: var(--font-size-sm-3);
+}
+
+.footer-section h5 {
+  color: var(--text-color);
+  font-weight: 600;
+  margin-bottom: var(--spacing-md) !important; /* Bootstrap override */
+}
+
+.footer-section .footer-logo {
+  height: 50px; /* Adjust as needed */
+  border-radius: 0; /* Override global img radius if needed */
+}
+
+.footer-section p.small {
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.footer-section .list-unstyled a {
+  color: var(--text-color);
+  transition: color var(--transition-speed) ease;
+}
+
+.footer-section .list-unstyled a:hover {
+  color: var(--primary-color) !important;
+  text-decoration: underline;
+}
+
+.footer-section .social-icons a {
+  color: var(--text-color);
+  transition: color var(--transition-speed) ease;
+}
+
+.footer-section .social-icons a:hover {
+  color: var(--primary-color) !important;
+}
+
+.footer-section form{
+  margin-top: var(--spacing-md);
+}
+
+.footer-section .form-control-sm {
+  font-size: var(--font-size-sm-2); /* Smaller font for input */
+  box-shadow: none;
+}
+
+
+.footer-section .input-group .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+
+.footer-section .input-group .btn-primary:hover {
+    background-color: var(--accent-color) !important; /* Using accent for hover on this specific button */
+    border-color: var(--accent-color);
+}
+
+.footer-section hr {
+  border-top: 1px solid #495057; /* Darker hr for contrast */
+}
+
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
