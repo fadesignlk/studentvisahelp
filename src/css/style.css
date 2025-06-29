@@ -544,13 +544,13 @@ footer{
 
 /* Footer Section */
 .footer-section {
-  background-color: var(--secondary-color) !important; /* Ensure override if Bootstrap has other bg-dark styles */
-  color: var(--light-text-color);
+  background-color: var(--background-color) !important; /* Ensure override if Bootstrap has other bg-dark styles */
+  color: var(--text-color) !important;
   font-size: var(--font-size-sm-3);
 }
 
 .footer-section h5 {
-  color: var(--light-text-color);
+  color: var(--text-color);
   font-weight: 600;
   margin-bottom: var(--spacing-md) !important; /* Bootstrap override */
 }
@@ -561,12 +561,12 @@ footer{
 }
 
 .footer-section p.small {
-  color: #adb5bd; /* Lighter shade for less emphasis */
+  color: var(--text-color);
   line-height: 1.6;
 }
 
 .footer-section .list-unstyled a {
-  color: #ced4da !important; /* Slightly lighter than main text for links */
+  color: var(--text-color);
   transition: color var(--transition-speed) ease;
 }
 
@@ -576,7 +576,7 @@ footer{
 }
 
 .footer-section .social-icons a {
-  color: #ced4da !important;
+  color: var(--text-color);
   transition: color var(--transition-speed) ease;
 }
 
@@ -584,9 +584,15 @@ footer{
   color: var(--primary-color) !important;
 }
 
+.footer-section form{
+  margin-top: var(--spacing-md);
+}
+
 .footer-section .form-control-sm {
   font-size: var(--font-size-sm-2); /* Smaller font for input */
+  box-shadow: none;
 }
+
 
 .footer-section .input-group .btn-primary {
     background-color: var(--primary-color);
