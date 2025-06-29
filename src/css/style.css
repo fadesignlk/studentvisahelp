@@ -542,6 +542,68 @@ footer{
   }
 }
 
+/* Footer Section */
+.footer-section {
+  background-color: var(--secondary-color) !important; /* Ensure override if Bootstrap has other bg-dark styles */
+  color: var(--light-text-color);
+  font-size: var(--font-size-sm-3);
+}
+
+.footer-section h5 {
+  color: var(--light-text-color);
+  font-weight: 600;
+  margin-bottom: var(--spacing-md) !important; /* Bootstrap override */
+}
+
+.footer-section .footer-logo {
+  height: 50px; /* Adjust as needed */
+  border-radius: 0; /* Override global img radius if needed */
+}
+
+.footer-section p.small {
+  color: #adb5bd; /* Lighter shade for less emphasis */
+  line-height: 1.6;
+}
+
+.footer-section .list-unstyled a {
+  color: #ced4da !important; /* Slightly lighter than main text for links */
+  transition: color var(--transition-speed) ease;
+}
+
+.footer-section .list-unstyled a:hover {
+  color: var(--primary-color) !important;
+  text-decoration: underline;
+}
+
+.footer-section .social-icons a {
+  color: #ced4da !important;
+  transition: color var(--transition-speed) ease;
+}
+
+.footer-section .social-icons a:hover {
+  color: var(--primary-color) !important;
+}
+
+.footer-section .form-control-sm {
+  font-size: var(--font-size-sm-2); /* Smaller font for input */
+}
+
+.footer-section .input-group .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+
+.footer-section .input-group .btn-primary:hover {
+    background-color: var(--accent-color) !important; /* Using accent for hover on this specific button */
+    border-color: var(--accent-color);
+}
+
+.footer-section hr {
+  border-top: 1px solid #495057; /* Darker hr for contrast */
+}
+
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   h1 { font-size: 1.9rem; }
