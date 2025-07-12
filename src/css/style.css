@@ -13,14 +13,26 @@
 */
 
 :root {
+
+
+  /* New Brand Color
+  
+  Primary Color: #3457d5
+  Secondary Color: #191970
+  Accent Color: #FF8C00
+  Heading Color Old: #18164c
+  Text Color: #2A3439
+  
+  */
+
   /* --- Color Variables --- */
-  --primary-color: #473ae0; 
+  --primary-color: #3457D5; 
   /* #0262e0 */
-  --secondary-color: #18164c; 
-  --accent-color: #D9B061;  
+  --secondary-color: #191970; 
+  --accent-color: #FF8C00;  
   /* ffb703, fb8500 */
-  --text-color: #36383a; 
-  --text-color-heading: #18164c;
+  --text-color: #2A3439; 
+  --text-color-heading: #191970;
   --light-text-color: #f8f9fa;
   --background-color: #ffffff;
   --background-color-body: #ebe9e5;
@@ -94,7 +106,9 @@ h1 {
   font-weight: 700;
 }
 
-h2 { font-size: 2.4em; }
+h2 { font-size: 2.4em;
+  color: var(--accent-color);
+}
 h3 { font-size: 1.92em; }
 h4 { font-size: 1.68em; }
 h5 { font-size: 1.25em; }
